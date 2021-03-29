@@ -6,6 +6,21 @@
 'server.port = 80'으로 수정
 3. src/main/java에 MVCApplication클래스 main메서드 실행해서 서버띄우기
 
+## 스프링 MVC 기본 설정
+1. 뷰리졸버 등록
+- 메인메서드가 있는 클래스 혹은 config클래스 (@Configuration)dp dkfodml sodyddmf wkrtjd
+'''java
+  //뷰 리졸버 등록 : 컨트롤러가 리턴한 문자열를 가지고 뷰 파일을 포워딩해주는 객체
+  @Bean
+  public InternalResourceViewResolver ViewResolver() {
+  InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+  resolver.setPrefix("/WEB-INF/views/");
+  resolver.setSuffix(".jsp");
+  return resolver;
+  }
+  '''
+
+
 ## JSP 파일 템플릿
 '''
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
