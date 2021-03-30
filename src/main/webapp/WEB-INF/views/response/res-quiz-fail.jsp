@@ -9,8 +9,8 @@
 <body>
 <h1>로그인 실패</h1>
    <p>
-      xxx님은 존재하지 않는 회원이거나 비밀번호가 틀렸습니다. <br>
-      <a href="#">로그인화면으로</a>
+      ${user.userId}님은 존재하지 않는 회원이거나 비밀번호가 틀렸습니다. <br>
+      <a href="/response/res-login">로그인화면으로</a>
    </p>
 </body>
 </html>

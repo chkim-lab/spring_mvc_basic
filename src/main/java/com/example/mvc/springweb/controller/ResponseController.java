@@ -4,6 +4,7 @@ import com.example.mvc.springweb.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -47,11 +48,11 @@ public class ResponseController {
         return "response/res-quiz";
     }
 
-    @GetMapping ("/response/res-login")
+    @PostMapping("/response/res-login")
     public String resLogin(User user, Model model) {
 
         //아이디를 모델에 추가
-        model.addAttribute("userid",user.getUserId());
+        model.addAttribute("user",user);
         System.out.println(user.getUserId());
         if (user.getUserId().equals("kim123") && user.getUserPw().equals("kkk1234")) {
             return  "response/res-quiz-success";
