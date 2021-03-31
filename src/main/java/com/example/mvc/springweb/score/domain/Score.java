@@ -22,6 +22,8 @@ public class Score {
     private int math;
     private int total;
     private double average;
+    private Grade grade;    //학점
+
 
     public Score() {
         this.stuNum = ++sequence;

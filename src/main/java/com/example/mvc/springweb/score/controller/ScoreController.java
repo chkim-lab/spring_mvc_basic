@@ -1,5 +1,6 @@
-package com.example.mvc.springweb.controller;
+package com.example.mvc.springweb.score.controller;
 
+import com.example.mvc.springweb.score.domain.Grade;
 import com.example.mvc.springweb.score.domain.Score;
 import com.example.mvc.springweb.score.repository.ScoreRepository;
 import com.example.mvc.springweb.score.service.ScoreService;
@@ -44,7 +45,8 @@ public class ScoreController {
     //학생 전체 성적 정보 조회 요청처리
     @GetMapping("/score/list")
     public String list(Model model) {
-        List<Score> scoreList = scoreRepository.selectAllScores();
+//        List<Score> scoreList = scoreRepository.selectAllScores();
+        List<Score> scoreList = scoreService.addGradeService();
         model.addAttribute("scores", scoreList);
         return  "score/score-list";
     }
@@ -63,6 +65,26 @@ public class ScoreController {
         //따라서 /score/list로 리다이렉트하여 재요청해야 함.
 //        return "score/score-list";
         return "redirect:/score/list";
+    }
+
+    //학생 성적 개별조회 요청 화면 열기
+    @GetMapping("/score/find-one")
+    public String findOne() {
+        return "/score/search";
+    }
+
+    @GetMapping("/score/search")
+    public String search(String stuNum, Model model, RedirectAttributes ra) {
+
+        try {
+            int num = Integer.parseInt(stuNum);
+            Score findScore = scoreRepository.selectOne(num);
+            model.addAttribute("score",findScore);
+            return "score/search-result";
+        } catch (NumberFormatException e) {
+            ra.addFlashAttribute("msg", "숫자로만 입력하세요!");
+            return "redirect:/score/find-one";
+        }
     }
 
 }

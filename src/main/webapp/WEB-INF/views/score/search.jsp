@@ -8,12 +8,17 @@
 </head>
 <body>
 
-<h1>점수 등록 성공!</h1>
+<h1>개별 점수 조회</h1>
+
+
+<form action="/score/search">
 <p>
-   <a href="/score/register">다른 점수 등록하기</a>
-   <a href="/score/list">점수 전체 조회</a>
-   <a href="/score/find-one">점수 개별 조회</a>
+ # 조회할 학번: <input type="text" name="stuNum" size="5">
+ <input type="submit" value="조회">
 </p>
+</form>
+
+<p style="color:red;">${msg}</p>
 
 </body>
 </html>
