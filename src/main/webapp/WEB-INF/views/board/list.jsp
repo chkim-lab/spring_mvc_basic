@@ -33,14 +33,14 @@
 			<td>${article.boardNo}</td>
 			<td>${article.writer}</td>
 			<td>		
-				<a href="/board/content?boardNo=${article.boarNo}">${article.title}</a>
+				<a href="/board/content?boardNo=${article.boardNo}">${article.title}</a>
 			</td>
 			<td>
-				<a href="/board/delete?boardNo=${article.boarNo}">[삭제]</a>
+				<a href="/board/delete?boardNo=${article.boardNo}">[삭제]</a>
 			</td>
 		</tr>
-	</c:forEach>	
-	
+	</c:forEach>
+
 </table>
 
 </c:if>
@@ -51,10 +51,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
