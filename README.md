@@ -60,6 +60,13 @@ public InternalResourceViewResolver viewResolver() {
 </html>
 ```
 
+-DB 실습준비작업 ORACLE
+sqlplus
+sys /as sysdba
+oracle
+CREATE USER java_web1 IDENTIFIED BY 202104;
+GRANT CONNECT, DBA TO java_web1;
+
 -- 시퀀스 생성
 CREATE SEQUENCE seq_score;
 
@@ -81,21 +88,3 @@ INSERT INTO tbl_score VALUES (seq_score.nextval, '김철수',90,90,90,270,90.00)
 INSERT INTO tbl_score VALUES (seq_score.nextval, '박영희',80,80,80,240,90.00);
 INSERT INTO tbl_score VALUES (seq_score.nextval, '고길동',70,70,70,210,70.00);
 COMMIT;
----------------------------------------------------------------------------------
-CREATE SEQUENCE seq_board;
-
-CREATE TABLE tbl_board (
-board_no NUMBER(10),
-writer VARCHAR2(50) NOT NULL,
-title VARCHAR2(200) NOT NULL,
-content VARCHAR2(2000)
-);
-ALTER TABLE tbl_board ADD CONSTRAINT pk_board PRIMARY KEY (board_no);
-
-SELECT * FROM tbl_board;
-
-INSERT INTO tbl_board VALUES (seq_board.nextval, '뽀로로', '뽀롱뽀롱뽀로로', '노는게 제일 조아~~~~~~');
-COMMIT;
-
-	//마이바티스 라이브러리
-	compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0"
