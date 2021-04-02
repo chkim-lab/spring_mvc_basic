@@ -5,6 +5,7 @@ import com.example.mvc.springweb.board.domain.ModifyBoard;
 import com.example.mvc.springweb.board.repository.BoardRepository;
 import com.example.mvc.springweb.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ public class BoardController {
     private final BoardRepository boardRepository;
 
     @Autowired
-    public BoardController(BoardService boardService, BoardRepository boardRepository) {
+    public BoardController(BoardService boardService, @Qualifier("jdbcBoardRepo") BoardRepository boardRepository) {
         this.boardService = boardService;
         this.boardRepository = boardRepository;
     }
@@ -66,7 +67,7 @@ public class BoardController {
     @PostMapping("/board/modify")
     public String modify(ModifyBoard modArticle) {
         Board board = boardRepository.getContent(modArticle.getBoardNo());
-        board.setWriter(modArticle.getTitle());
+        board.setWriter(modArticle.getWriter());
         board.setTitle(modArticle.getTitle());
         board.setContent(modArticle.getContent());
         boardRepository.modifyArticle(board);
