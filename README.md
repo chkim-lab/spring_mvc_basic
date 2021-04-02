@@ -88,3 +88,6 @@ INSERT INTO tbl_score VALUES (seq_score.nextval, '김철수',90,90,90,270,90.00)
 INSERT INTO tbl_score VALUES (seq_score.nextval, '박영희',80,80,80,240,90.00);
 INSERT INTO tbl_score VALUES (seq_score.nextval, '고길동',70,70,70,210,70.00);
 COMMIT;
+
+	//마이바티스 라이브러리
+	compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0"
