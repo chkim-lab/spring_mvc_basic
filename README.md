@@ -88,3 +88,5 @@ INSERT INTO tbl_score VALUES (seq_score.nextval, '김철수',90,90,90,270,90.00)
 INSERT INTO tbl_score VALUES (seq_score.nextval, '박영희',80,80,80,240,90.00);
 INSERT INTO tbl_score VALUES (seq_score.nextval, '고길동',70,70,70,210,70.00);
 COMMIT;
+
+//mybatis mapper xml 설정 resources 에 경로생성
